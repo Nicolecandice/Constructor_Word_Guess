@@ -1,5 +1,5 @@
-var letter = function(character) {
-    this.letter = character;
+var letter = function(ltr) {
+    this.letter = ltr;
     this.appear = false;
 }
 // input data to screen

@@ -8,10 +8,10 @@ function word(wd) {
 }
 
 //get and push letters to the array
-this.getletters = function() {
+this.getLetters = function() {
     for (var i =0; i < this.word.length; i++)
-    var newletter = new letter (this.word [i]);
-    this.letter.push(newletter)
+    var newLetter = new Letter (this.word [i]);
+    this.letter.push(newLetter)
 }
 //check to see if user found current word.
 this.checkWord = function (){
@@ -24,5 +24,29 @@ this.checkWord = function (){
     }
 
 }
+// check if letter is in the word
+this.checkIfLetter = function(guessedLetter) {
+    var returnLetter = 0
+
+    // Loop throught to see if letter matches 
+    this.letters.forEach(function(ltr){
+        if(ltr.letter === guesssedLettter) {
+            ltr.appear = true
+            returnLetter++
+        }
+    })
+    // if letter matches show letter
+    return returnLetter
+}
+this.wordRender = function() {
+    var display = ''
+    // render if letter is found or not
+    this.letter.forEach(function(ltr){
+        var curLetter = ltr.letterRender()
+        display += curLetter
+    })
+    return display
+}
+module.exports = word
 
 
